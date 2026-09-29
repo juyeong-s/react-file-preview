@@ -10,7 +10,8 @@
     "typecheck": "pnpm -r typecheck",
     "fixtures": "node scripts/generate-fixtures.mjs",
     "changeset": "changeset",
-    "version-packages": "changeset version"
+    "version-packages": "changeset version",
+    "readme:sync": "node scripts/sync-readme.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
