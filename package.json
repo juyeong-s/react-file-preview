@@ -1,0 +1,23 @@
+{
+  "name": "react-file-preview-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "pnpm --filter playground dev",
+    "build": "pnpm --filter @ruby-s/react-file-preview build",
+    "test": "pnpm --filter @ruby-s/react-file-preview test",
+    "typecheck": "pnpm -r typecheck",
+    "fixtures": "node scripts/generate-fixtures.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3",
+    "docx": "^9.8.1",
+    "iconv-lite": "^0.7.3",
+    "pdf-lib": "^1.17.1",
+    "typescript": "~6.0.3",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  }
+}

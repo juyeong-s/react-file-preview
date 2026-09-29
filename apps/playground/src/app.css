@@ -1,0 +1,317 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --text: #1f2328;
+  --muted: #656d76;
+  --border: #e1e4e8;
+  --accent: #3b5bdb;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+.app[data-theme='dark'] {
+  --bg: #0b0e13;
+  --panel: #12161d;
+  --text: #e6edf3;
+  --muted: #9198a1;
+  --border: #2a3038;
+  --accent: #748ffc;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 280px;
+  flex: none;
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  background: var(--panel);
+  overflow: auto;
+}
+.side h1 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+.side h1 small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.drop {
+  display: block;
+  padding: 16px;
+  border: 1.5px dashed var(--border);
+  border-radius: 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+.drop[data-dragging] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.url {
+  display: flex;
+  gap: 6px;
+}
+.url input {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+}
+.url button,
+.headless-actions button {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: inherit;
+  cursor: pointer;
+  font-size: 13px;
+}
+.samples {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.samples button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+}
+.samples button:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.samples button[data-active] {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+.samples small {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.events {
+  margin-top: auto;
+  font-size: 11.5px;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+}
+.events strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 16px 20px 20px;
+}
+.bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+.tabs button {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+.tabs button[aria-selected='true'] {
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+.controls {
+  display: flex;
+  gap: 6px;
+}
+.controls select {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: inherit;
+  font-size: 13px;
+}
+.hint {
+  margin: 10px 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-family: ui-monospace, monospace;
+}
+.stage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.stage > * {
+  flex: 1;
+  min-height: 0;
+}
+
+/* --- Compound demo: a "brand" look done with variables + classes -------- */
+.brand-viewer {
+  --fp-color-primary: #0ca678;
+  --fp-radius: 14px;
+  --fp-canvas-bg: #f1f8f5;
+  --fp-page-gap: 24px;
+  --fp-toolbar-height: 56px;
+}
+.brand-viewer[data-theme='dark'] {
+  --fp-canvas-bg: #0b1512;
+}
+.brand-toolbar {
+  gap: 8px; /* layered library CSS never needs !important to override */
+}
+.my-button {
+  height: 32px;
+  min-width: 32px;
+  padding: 0 12px;
+  border: 1px solid #b2f2bb;
+  border-radius: 999px;
+  background: #ebfbee;
+  color: #087f5b;
+  font-weight: 600;
+  cursor: pointer;
+}
+.my-button.primary {
+  background: #0ca678;
+  border-color: #0ca678;
+  color: #fff;
+}
+.my-button[data-disabled] {
+  opacity: 0.4;
+  cursor: default;
+}
+.brand-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 44px;
+  border-top: 1px solid var(--fp-color-border);
+  background: var(--fp-color-surface);
+  font-size: 13px;
+}
+.brand-footer .dim {
+  opacity: 0.3;
+}
+.brand-tab {
+  padding: 4px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.brand-tab.active {
+  background: #0ca678;
+  color: #fff;
+}
+
+/* --- Headless demo ----------------------------------------------------- */
+.headless {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.headless-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  font-size: 13px;
+}
+.headless-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.headless-actions button:disabled {
+  opacity: 0.4;
+}
+.headless-root {
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 760px) {
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .side {
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .samples {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .samples small,
+  .events {
+    display: none;
+  }
+  .stage {
+    height: 75vh;
+    flex: none;
+  }
+}

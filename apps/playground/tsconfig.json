@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@ruby-s/react-file-preview": ["../../packages/react-file-preview/src/index.ts"],
+      "@ruby-s/react-file-preview/*": ["../../packages/react-file-preview/src/*"]
+    }
+  },
+  "include": ["src"]
+}
