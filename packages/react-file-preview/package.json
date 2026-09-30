@@ -1,6 +1,6 @@
 {
   "name": "@ruby-s/react-file-preview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "One React component to preview PDF, Word, Excel, images, video, audio and text — fully client-side, lazy-loaded per format.",
   "license": "MIT",
   "repository": {
