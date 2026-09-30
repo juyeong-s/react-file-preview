@@ -32,6 +32,16 @@ pnpm build         # packages/react-file-preview/dist 생성
 pnpm build && USE_DIST=1 pnpm --filter playground exec vite
 ```
 
+## 데모 영상 다시 찍기
+
+README 상단의 GIF는 스크립트로 녹화합니다. 플레이그라운드를 자동으로 조작하며 녹화해서 `docs/demo.gif`(README·npm용)와 `docs/demo.mp4`(고화질)를 만듭니다. 시나리오는 `scripts/record-demo.mjs`에서 수정합니다.
+
+```bash
+brew install ffmpeg                # 처음 한 번
+npx playwright install chromium    # 처음 한 번
+pnpm fixtures && pnpm demo
+```
+
 ## README 수정
 
 README의 원본은 `packages/react-file-preview/README.md`입니다(npm 페이지에 표시됨). 수정한 뒤 아래 명령으로 루트 `README.md`(GitHub에 표시됨)에 복사하세요. 두 파일이 다르면 CI가 실패합니다.

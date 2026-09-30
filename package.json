@@ -11,13 +11,15 @@
     "fixtures": "node scripts/generate-fixtures.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "readme:sync": "node scripts/sync-readme.mjs"
+    "readme:sync": "node scripts/sync-readme.mjs",
+    "demo": "node scripts/record-demo.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
     "docx": "^9.8.1",
     "iconv-lite": "^0.7.3",
     "pdf-lib": "^1.17.1",
+    "playwright": "^1.63.0",
     "typescript": "~6.0.3",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   }

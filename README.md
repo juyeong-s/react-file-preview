@@ -2,6 +2,8 @@
 
 One React component to preview **PDF, Word, Excel, images, video, audio and text**, entirely in the browser.
 
+![react-file-preview demo: PDF, Word, Excel, images and Markdown in one viewer](https://raw.githubusercontent.com/juyeong-s/react-file-preview/main/docs/demo.gif)
+
 - **One install.** No pdf.js worker setup, no separate Excel/Word libraries to wire up.
 - **Fully client-side.** Files are never sent to Office Online or Google Docs viewers, so it works on intranets and with private files.
 - **Lazy per format.** The core is ~12 KB gzip. pdf.js, SheetJS and docx-preview load only when a file of that type is opened.

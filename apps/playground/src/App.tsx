@@ -43,6 +43,8 @@ interface Selected {
   name: string;
 }
 
+const params = new URLSearchParams(window.location.search);
+
 // App-wide defaults; props on each viewer still win.
 const appConfig = createViewerConfig({
   formats: { image: { zoomOptions: { max: 8 } } },
@@ -51,8 +53,9 @@ const appConfig = createViewerConfig({
 export function App() {
   const [selected, setSelected] = useState<Selected>({ source: '/samples/sample.pdf', name: 'sample.pdf' });
   const [demo, setDemo] = useState<Demo>('preset');
-  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('light');
-  const [locale, setLocale] = useState<'ko' | 'en'>('ko');
+  // `?locale=en&theme=dark` presets the controls (used by scripts/record-demo.mjs).
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(() => (params.get('theme') as 'dark') ?? 'light');
+  const [locale, setLocale] = useState<'ko' | 'en'>(() => (params.get('locale') === 'en' ? 'en' : 'ko'));
   const [url, setUrl] = useState('');
   const [dragging, setDragging] = useState(false);
   const [events, setEvents] = useState<string[]>([]);
@@ -191,7 +194,7 @@ function CompoundDemo(props: Parameters<typeof FileViewer>[0]) {
       <Viewer.If capability="paging">
         <footer className="brand-footer">
           <Viewer.PrevPage className={({ disabled }) => (disabled ? 'dim' : undefined)} />
-          <Viewer.PageIndicator>{({ page, pageCount }) => <span>{page} 쪽 / 전체 {pageCount} 쪽</span>}</Viewer.PageIndicator>
+          <Viewer.PageIndicator>{({ page, pageCount }) => <span>Page {page} of {pageCount}</span>}</Viewer.PageIndicator>
           <Viewer.NextPage className={({ disabled }) => (disabled ? 'dim' : undefined)} />
         </footer>
       </Viewer.If>
